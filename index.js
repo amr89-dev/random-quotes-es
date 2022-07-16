@@ -22,7 +22,7 @@ const colors = [
 ];
 
 const colorChange = () => {
-  let randomizerColor = Math.round(Math.random() * colors.length);
+  let randomizerColor = Math.floor(Math.random() * colors.length);
   let randomColor = colors[randomizerColor];
 
   $quoteBox.setAttribute("style", `color: ${randomColor};`);
@@ -40,7 +40,7 @@ const getQuotes = async () => {
     if (!res.ok) throw { status: res.status, statusText: res.statusText };
 
     let randomQuote =
-      json.quotes[Math.round(Math.random() * json.quotes.length)];
+      json.quotes[Math.floor(Math.random() * json.quotes.length)];
 
     $text.innerHTML = randomQuote.quote;
     $author.innerHTML = randomQuote.author;
